@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="MachineIntegration.Tests/MachineIntegration.Tests.csproj" Id="a480c2b0-38ce-4648-96eb-d8e30849abf7" />
+  <Project Path="MachineIntegration/MachineIntegration.csproj" />
+</Solution>
