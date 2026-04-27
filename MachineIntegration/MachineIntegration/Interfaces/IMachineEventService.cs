@@ -10,6 +10,8 @@ namespace MachineIntegration.Interfaces
     {
         public MachineEvent CreateMachineEvent(AddMachineEventDTO dto);
         public List<MachineEvent> GetMachineEvents();
+        public MachineEvent ResolveEvent(Guid id);
+        public List<MachineEvent> GetActiveAlarms();
 
         /*
          * 

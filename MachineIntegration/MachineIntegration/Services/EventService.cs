@@ -40,5 +40,31 @@ namespace MachineIntegration.Services
         {
             return _events.ToList();
         }
+
+        public MachineEvent ResolveEvent(Guid id)
+        {
+            if (id == Guid.Empty)
+                throw new ArgumentNullException("Id can not be null.");
+
+            MachineEvent foundEvent = new MachineEvent();
+            foundEvent = _events.Find(m => m.Id == id);
+            if (foundEvent != null)
+            {
+                foundEvent.IsResolved = true;
+                return foundEvent;
+            } else
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
+        /// <summary>
+        /// Returns all event with type "Alarm" and IsResolved is false
+        /// </summary>
+        /// <returns></returns>
+        public List<MachineEvent> GetActiveAlarms()
+        {
+            return _events.Where(n => n.Type == "Alarm" && !n.IsResolved).ToList();
+        }
     }
 }

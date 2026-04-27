@@ -35,5 +35,28 @@ namespace MachineIntegration.Controllers
         {
             return Ok(_service.GetMachineEvents());
         }
+
+        [HttpPut]
+        [Route("{id}/resolve")]
+        public ActionResult<MachineEvent> ResolveEvent(Guid id)
+        {
+            try
+            {
+                return Ok(_service.ResolveEvent(id));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("/active-alarms")]
+        public ActionResult<List<MachineEvent>> GetActiveAlarms()
+        {
+            return Ok(_service.GetActiveAlarms());
+        }
     }
+
+
 }
